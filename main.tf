@@ -14,6 +14,7 @@ resource "jetstream_stream" "ORDERS" {
   name     = "ORDERS"
   subjects = ["ORDERS.*"]
   storage  = "file"
+  max_msgs = 1000000
   max_age  = 60 * 60 * 24 * 365
 }
 
