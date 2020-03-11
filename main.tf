@@ -1,9 +1,13 @@
 // Creates the example config from the Concepts section in the JetStream documentation
 //
 // https://github.com/nats-io/jetstream#concepts
+variable "ngs_credential_data" {
+  type = string
+}
+
 provider "jetstream" {
   servers = "connect.ngs.global"
-  credentials = "ngs_jetstream_admin.creds"
+  credential_data = var.ngs_credential_data
 }
 
 resource "jetstream_stream" "ORDERS" {
